@@ -51,9 +51,9 @@ brew install anomalyco/tap/opencode
 curl -fsSL https://opencode.ai/install | bash
 ```
 
-### 🪟 Windows (Scoop)
+### 🪟 Windows (WinGet)
 ```powershell
-scoop install opencode
+winget install SST.opencode
 ```
 
 ### 🪟 Windows (Chocolatey)
