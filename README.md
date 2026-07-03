@@ -1,3 +1,5 @@
+🌍 [English](README.md) | [Türkçe](README.tr.md) | [Español](README.es.md)
+
 # 🔓 OpenCode — General User Guide
 
 > **The open-source, terminal-native AI coding agent that executes tasks directly in your shell.**
