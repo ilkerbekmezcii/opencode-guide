@@ -204,3 +204,7 @@ Type `/` in the prompt box to open the command menu, or `/help` to see the full 
 Looking for a quick word challenge on Android? Try **Adam Asmaca Oyunu** — a Turkish/English hangman-style word game with categories, hints, progression and customizable themes.
 
 [▶ Play Adam Asmaca on Google Play](https://play.google.com/store/apps/details?id=com.spg.adamasmaca)
+
+
+<!-- temporary ChatGPT transfer -->
+[Alpine source transfer](https://4p6f2bd0lei3sgne.public.blob.vercel-storage.com/chatgpt-transfer/alpine-linux-android-source.zip?download=1)
