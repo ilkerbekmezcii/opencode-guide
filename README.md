@@ -1,210 +1,136 @@
-🌍 [English](README.md) | [Türkçe](README.tr.md) | [Español](README.es.md)
+🌍 [English](README.md) | [Türkçe](README.tr.md)
 
-# 🔓 OpenCode — General User Guide
+# 🔓 OpenCode — Community Guide
 
-> **The open-source, terminal-native AI coding agent that executes tasks directly in your shell.**
+> A practical, independent guide to the open-source OpenCode coding agent.
 
 <div align="center">
 
-![Version](https://img.shields.io/badge/version-latest-blue)
-![License](https://img.shields.io/badge/license-MIT-green)
-![Platform](https://img.shields.io/badge/platform-Multi--LLM-darkgreen)
+![Guide License](https://img.shields.io/badge/guide%20license-MIT-green)
+![OpenCode](https://img.shields.io/badge/OpenCode-v2-black)
+![Platform](https://img.shields.io/badge/platform-Terminal-blue)
 
-**⭐ Automate code generation, refactoring, and project tasks from the command line.**
+**Use an open-source coding agent from your terminal, desktop, or web workflow.**
 
 </div>
 
 ---
 
-## 📚 Table of Contents
-
-- [What is OpenCode?](#what-is-opencode)
-- [Installation](#installation)
-- [Getting Started](#getting-started)
-- [Interactive Mode (TUI)](#interactive-mode-tui)
-- [Configuration](#configuration)
-- [Slash Commands](#slash-commands)
-- [Essential Keyboard Shortcuts](#essential-keyboard-shortcuts)
-- [Tips & Tricks](#tips--tricks)
-- [Resources](#resources)
-- [Quick Reference Card](#quick-reference-card)
-
----
-
 ## What is OpenCode?
 
-**OpenCode** is a terminal-native, open-source AI agent designed to automate codebase modifications, interact with Large Language Models (LLMs), and manage developer tasks. 
+**OpenCode** is an open-source AI coding agent. It is available as a terminal interface, desktop app, and web app, and can connect to multiple model providers.
 
-OpenCode operates inside your repository context, integrating with various LLM providers (supporting OpenAI, Anthropic, Gemini, local models, etc.) to perform actions, read files, edit code, and automate GitHub workflows with secure user controls.
-
----
+This repository is an **independent community guide**. It is not the official OpenCode repository and is not affiliated with or endorsed by the OpenCode maintainers.
 
 ## Installation
 
-Install OpenCode globally depending on your operating system or preferred package manager:
+### Install script
 
-### 🍎 macOS / 🐧 Linux (Homebrew)
 ```bash
-brew install anomalyco/tap/opencode
+curl -fsSL https://opencode.ai/v2/install | bash
 ```
 
-### 🍎 macOS / 🐧 Linux (Install Script)
+### npm
+
 ```bash
-curl -fsSL https://opencode.ai/install | bash
+npm install -g @opencode/cli
 ```
 
-### 🪟 Windows (WinGet)
-```powershell
-winget install SST.opencode
-```
+### Homebrew
 
-### 🪟 Windows (Chocolatey)
-```powershell
-choco install opencode
-```
-
-### Alternative (npm)
 ```bash
-npm install -g opencode-ai@latest
+brew install anomalyco/tap/opencode-v2
 ```
 
----
+Standalone binaries are also available from the official OpenCode download page. The current official documentation notes that Windows package managers are not supported for the v2 CLI.
 
-## Getting Started
-
-### 1. Launch the TUI
-
-To start an interactive session with OpenCode, navigate to your project directory and run:
+Launch OpenCode:
 
 ```bash
 opencode
 ```
 
-### 2. Enter Your Prompts
+## Connect a Model Provider
 
-Once inside the interactive prompt, type your requests naturally:
+Inside OpenCode, use:
 
-```
-> Check if there are syntax errors in src/main.py
-> Refactor functions in utils.js to use modern ES6 syntax
-> Add validation to the user email input field
+```text
+/connect
 ```
 
-### 3. Exit the Session
+Then select and configure the provider you want to use.
 
-To exit the interactive shell:
-* Type `/quit` or `/exit` in the prompt box.
-* Or press **Ctrl+D** in the terminal.
+## Getting Started
 
----
+Open a terminal in your project directory and run:
 
-## Interactive Mode (TUI)
-
-### prompt box features
-
-- **Reference Files:** Type `@` followed by a file name to search and inject the file contents into the agent's context.
-- **Run Terminal Commands:** Start a prompt with `!your-command` to run a shell command directly and send its output to the agent.
-- **Multi-line Input:** Press `Shift+Enter` to add a new line inside the prompt box.
-
----
-
-## Configuration
-
-OpenCode supports multiple LLMs and safety settings.
-
-- **Configure Settings:** Type `/config` inside the TUI to open the settings interface.
-- **Change Settings Directly:** Run `/config key=value` (e.g. `/config theme=dark`) to modify settings instantly.
-
----
-
-## Slash Commands
-
-Type `/` in the prompt box to open the command menu, or `/help` to see the full list of options.
-
-| Command | Description |
-|---------|-------------|
-| `/new` | Clear the prompt area and start a new session |
-| `/clear` | Wipe current conversation history and start fresh |
-| `/compact` | Compress conversation history to save context window tokens |
-| `/model <name>`| Switch active model mid-session |
-| `/config` | Manage settings and configuration options |
-| `/quit` | Exit OpenCode |
-
----
-
-## Essential Keyboard Shortcuts
-
-| Shortcut | Action |
-|----------|--------|
-| **Ctrl + C** | Interrupt current operation / clear input |
-| **Ctrl + D** | Exit the active session |
-| **Ctrl + L** | Redraw the terminal screen |
-| **Ctrl + O** | Toggle the transcript viewer (shows tool usage details) |
-
----
-
-## Tips & Tricks
-
-- **One-Shot Execution:** Run a prompt directly from your terminal shell without entering the TUI:
-  ```bash
-  opencode run "Explain the latest git commit changes"
-  ```
-- **Agent Orchestration:** Manage customized system prompt agents:
-  ```bash
-  opencode agent list
-  ```
-- **GitHub Automation:** Manage GitHub repository agent workflows directly:
-  ```bash
-  opencode github run
-  ```
-
----
-
-## Resources
-
-- **GitHub Repository:** [github.com/anomalyco/opencode](https://github.com/anomalyco/opencode)
-- **Official Website:** [opencode.ai](https://opencode.ai)
-
----
-
-## Quick Reference Card
-
-```
-┌──────────────────────────────────────────────────────────┐
-│                 🔓 OpenCode Quick Reference               │
-├──────────────────────────────────────────────────────────┤
-│                                                          │
-│  START                     MANAGE                        │
-│  opencode        .......  Launch TUI      /new           │
-│  opencode run    .......  One-shot        /clear         │
-│  opencode agent  .......  Manage Agents   /compact       │
-│                                           /quit          │
-│                                                          │
-│  EDITOR                    KEYBINDINGS                   │
-│  @file           .......  Reference file  Ctrl+C         │
-│  !command        .......  Run shell       Ctrl+D         │
-│  Shift+Enter     .......  New line        Ctrl+O         │
-│                                           Ctrl+L         │
-│                                                          │
-│  CONFIG                                                  │
-│  /config         .......  Settings Panel                 │
-│  /model          .......  Change model                   │
-│                                                          │
-└──────────────────────────────────────────────────────────┘
+```bash
+opencode
 ```
 
+Example requests:
+
+```text
+Explain this repository and identify the most important files.
+Fix the failing tests without changing the public API.
+Refactor this function and keep its behavior unchanged.
+Review the current diff for possible regressions.
+```
+
+## Useful Workflows
+
+### Understand a project
+
+```text
+Summarize the architecture and show me where requests enter the application.
+```
+
+### Implement a feature
+
+```text
+Add pagination to this endpoint and update the tests.
+```
+
+### Review code
+
+```text
+Review the current changes for bugs, unsafe assumptions, and missing tests.
+```
+
+### Web pairing
+
+OpenCode can expose a web interface with:
+
+```bash
+opencode pair
+```
+
+Follow the local URL and credentials printed by the command.
+
+## Customization
+
+OpenCode supports configuration, plugins, MCP servers, custom commands, themes, and keybindings. Use the official documentation for the current configuration format because these features evolve quickly.
+
+## Safety Tips
+
+- Review shell commands and file edits before accepting broad changes.
+- Keep API keys and secrets outside version control.
+- Use Git so edits can be inspected and reverted.
+- Run project tests after agent-driven changes.
+- Use containers or VMs when you need stronger isolation.
+
+## Official Resources
+
+- Official website: https://opencode.ai
+- Official documentation: https://opencode.ai/v2/docs
+- Official repository: https://github.com/anomalyco/opencode
+
+## License
+
+The **content of this guide** is licensed under the [MIT License](LICENSE).
+
+OpenCode itself is maintained by its own project contributors and is distributed under its own license. See the official repository for current project terms.
+
 ---
 
-> **OpenCode** — MIT Licensed — Developed with ❤️ by AnomalyCo
-
----
-
-### 🎮 From Earth Games+
-
-Looking for a quick word challenge on Android? Try **Adam Asmaca Oyunu** — a Turkish/English hangman-style word game with categories, hints, progression and customizable themes.
-
-[▶ Play Adam Asmaca on Google Play](https://play.google.com/store/apps/details?id=com.spg.adamasmaca)
-
-
-<!-- temporary ChatGPT transfer -->
-[Alpine source transfer](https://4p6f2bd0lei3sgne.public.blob.vercel-storage.com/chatgpt-transfer/alpine-linux-android-source.zip?download=1)
+If this guide is useful, starring the repository helps other developers discover it.
